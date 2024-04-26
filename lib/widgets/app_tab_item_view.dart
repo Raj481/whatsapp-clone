@@ -8,26 +8,46 @@ import '../utils/color_res.dart';
 class AppTabItemView extends StatelessWidget {
   final IconData icon;
   final String text;
-  const AppTabItemView({super.key, required this.icon, required this.text});
+  final bool? isActive;
+  final Function()? onTap;
+  const AppTabItemView({super.key,
+    required this.icon,
+    required this.text,
+    this.isActive = false,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
 
     ColorRes colorRes = ColorRes.instance;
 
-    return Container(
+    return GestureDetector(
+      onTap: onTap ?? (){},
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-              icon
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 5
+            ),
+            decoration: BoxDecoration(
+                color: isActive! ? colorRes.greenAccent : colorRes.transparent,
+                 borderRadius: BorderRadius.circular(20)
+            ),
+            child: Icon(
+                icon,
+              size: 18,
+            ),
           ),
           const SizedBox(height: 5,),
           Text(
             text,
             style: TextStyle(
               fontSize: 18,
-              color: colorRes.black
+              color: colorRes.black,
+              fontWeight: isActive! ? FontWeight.bold : FontWeight.normal,
             ),
           )
         ],

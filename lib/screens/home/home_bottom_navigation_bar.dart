@@ -43,18 +43,23 @@ class HomeBottomNavigationBar extends StatelessWidget {
               AppTabItemView(
                 text: stringRes.chats,
                 icon: Icons.chat,
+                isActive: true,
+                onTap: () {  },
               ),
               AppTabItemView(
                 text: stringRes.updates,
                 icon: Icons.update,
+                onTap: () {  },
               ),
               AppTabItemView(
                 text: stringRes.communities,
                 icon: FontAwesomeIcons.peopleGroup,
+                onTap: () {  },
               ),
               AppTabItemView(
                 text: stringRes.calls,
                 icon: FontAwesomeIcons.phone,
+                onTap: () {  },
               ),
             ],
           ),

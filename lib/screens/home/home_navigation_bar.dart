@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // import custom class
 import '../../utils/color_res.dart';
+import '../../utils/image_res.dart';
 import '../../utils/string_res.dart';
 
 class HomeNavigationBar extends StatelessWidget {
@@ -13,13 +14,14 @@ class HomeNavigationBar extends StatelessWidget {
 
     ColorRes colorRes = ColorRes.instance;
     StringRes stringRes = StringRes.instance;
+    ImageRes imageRes = ImageRes.instance;
 
     return Container(
       decoration: BoxDecoration(
         color: colorRes.white
       ),
       constraints: const BoxConstraints(
-        minHeight: 80
+        minHeight: 60
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,12 +72,12 @@ class HomeNavigationBar extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10,),
-                    InkWell(
-                      onTap: () {},
-                      child: Icon(
-                        Icons.kebab_dining,
-                        color: colorRes.black,
-                      ),
+                    Image(
+                        height: 16,
+                        width: 16,
+                        image: AssetImage(
+                            imageRes.kebab,
+                        )
                     ),
                   ],
                 )
