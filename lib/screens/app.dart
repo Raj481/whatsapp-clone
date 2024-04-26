@@ -1,6 +1,7 @@
 
 // import neccessary package
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 // import custom class
 import 'home/home_screen.dart';
@@ -10,7 +11,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );

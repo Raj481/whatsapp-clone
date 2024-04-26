@@ -1,10 +1,11 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:whatsup_clone/widgets/chat_item_view.dart';
+import 'package:get/get.dart';
+import 'package:whatsup_clone/screens/home/home_controller.dart';
 
 // import custom class
 import '../../utils/color_res.dart';
+import '../../widgets/chat_item_view.dart';
 import 'home_bottom_navigation_bar.dart';
 import 'home_navigation_bar.dart';
 
@@ -15,6 +16,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     ColorRes colorRes = ColorRes.instance;
+    HomeController controller = Get.put(HomeController());
+
     return SafeArea(
       top: true,
       child: Scaffold(
@@ -24,11 +27,15 @@ class HomeScreen extends StatelessWidget {
 
             Column(
               children: [
-                Positioned(
-                    top: 0,
-                    left: 0, right: 0,
-                    child: HomeNavigationBar()
+                GetBuilder(
+                    init: controller,
+                    builder: (_){
+                      return HomeNavigationBar(
+                        controller: controller,
+                      );
+                    }
                 ),
+
                 Flexible(
                   child: ListView.builder(
                     itemCount: 15,
@@ -38,10 +45,8 @@ class HomeScreen extends StatelessWidget {
                       }
                   ),
                 ),
-                Positioned(
-                    bottom: 0,
-                    left: 0, right: 0,
-                    child: HomeBottomNavigationBar()
+                HomeBottomNavigationBar(
+                  controller: controller,
                 ),
               ],
             )

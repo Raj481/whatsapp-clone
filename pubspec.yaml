@@ -8,7 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^1.0.8
+  #----- State Management -----#
+  get: ^4.6.6
   font_awesome_flutter: ^10.7.0
 
 dev_dependencies:

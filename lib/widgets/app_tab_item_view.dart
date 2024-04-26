@@ -29,8 +29,8 @@ class AppTabItemView extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 5
+              horizontal: 15,
+              vertical: 8
             ),
             decoration: BoxDecoration(
                 color: isActive! ? colorRes.greenAccent : colorRes.transparent,

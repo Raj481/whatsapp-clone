@@ -5,9 +5,15 @@ import 'package:flutter/material.dart';
 import '../../utils/color_res.dart';
 import '../../utils/image_res.dart';
 import '../../utils/string_res.dart';
+import 'home_controller.dart';
 
 class HomeNavigationBar extends StatelessWidget {
-  const HomeNavigationBar({super.key});
+
+  final HomeController controller;
+  const HomeNavigationBar({
+    super.key,
+    required this.controller
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +21,7 @@ class HomeNavigationBar extends StatelessWidget {
     ColorRes colorRes = ColorRes.instance;
     StringRes stringRes = StringRes.instance;
     ImageRes imageRes = ImageRes.instance;
+
 
     return Container(
       decoration: BoxDecoration(
@@ -38,7 +45,7 @@ class HomeNavigationBar extends StatelessWidget {
                 Text(
                     stringRes.appName,
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
                     color: colorRes.greenAccent
                   ),
@@ -72,12 +79,39 @@ class HomeNavigationBar extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10,),
-                    Image(
-                        height: 16,
-                        width: 16,
-                        image: AssetImage(
+                    PopupMenuButton(
+                        color: colorRes.white,
+                        padding: EdgeInsets.zero,
+                        elevation: 1,
+                        shadowColor: colorRes.black.withOpacity(.1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        ),
+                        position:  PopupMenuPosition.under,
+                        itemBuilder: (_){
+                          return controller.optionList.map(
+                                  (e) => PopupMenuItem(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 8,
+                                      horizontal: 10
+                                    ),
+                                      height: 35,
+                                      child: Text(
+                                        e,
+                                        style: TextStyle(
+                                            color: colorRes.black,
+                                            fontSize: 21
+                                        ),
+                                      )
+                                  )).toList();
+                        },
+                        child: Image(
+                          height: 16,
+                          width: 16,
+                          image: AssetImage(
                             imageRes.kebab,
-                        )
+                          )
+                      )
                     ),
                   ],
                 )
