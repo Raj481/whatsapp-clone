@@ -34,11 +34,11 @@ class AppTabItemView extends StatelessWidget {
             ),
             decoration: BoxDecoration(
                 color: isActive! ? colorRes.greenAccent : colorRes.transparent,
-                 borderRadius: BorderRadius.circular(20)
+                borderRadius: BorderRadius.circular(20)
             ),
             child: Icon(
                 icon,
-              size: 18,
+                size: isActive! ? 16 : 24,
             ),
           ),
           const SizedBox(height: 5,),
