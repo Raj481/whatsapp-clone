@@ -5,14 +5,14 @@ import 'package:whatsup_clone/utils/font_res.dart';
 
 import '../../utils/image_res.dart';
 
-class ChatScreen extends StatefulWidget {
-  const ChatScreen({super.key});
+class StatusScreen extends StatefulWidget {
+  const StatusScreen({super.key});
 
   @override
-  State<ChatScreen> createState() => _ChatScreenState();
+  State<StatusScreen> createState() => _StatusScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _StatusScreenState extends State<StatusScreen> {
 
   List<Map<String, dynamic>> list = [
     {
@@ -189,18 +189,6 @@ class _ChatScreenState extends State<ChatScreen> {
                             color: ColorRes.black,
                             fontFamily: FontRes.openSans,
                             fontSize: 18
-                        ),
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        list.elementAt(index)["message"],
-                        style: TextStyle(
-                            color: ColorRes.gray,
-                            fontFamily: FontRes.openSans,
-                            fontSize: 14
                         ),
                       )
                     ],
